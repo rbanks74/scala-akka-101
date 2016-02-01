@@ -1,5 +1,7 @@
 package college
 
+import person.Student
+
 sealed abstract class School {
   val name: String
   val location: String
@@ -56,15 +58,18 @@ class College(cName: String, cLocation: String, cEnrollmentSize: Int, cAcceptanc
     )
   }
   var studentsList: List[person.Student] = List()
+  var studentMap = scala.collection.mutable.Map[String, Student]()
 
-  def addStudent(student: person.Student) = {
+  def addStudent(student: person.Student): Unit = {
     studentsList ::= student
+    studentMap += (student.getId -> student)
   }
-  def addStudent(students: List[person.Student]) = {
+  def addStudent(students: List[person.Student]): Unit = {
     students.foreach(x => studentsList ::= x)
+    students.foreach(x => studentMap += (x.getId -> x))
   }
 
-  def getStudentList = studentsList.map(x => x.getId)
+  def getStudentList: List[String] = studentsList.map(x => x.getId)
 
   override def toString = name + " " + studentsList
 }

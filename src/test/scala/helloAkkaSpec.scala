@@ -11,6 +11,11 @@ class helloAkkaSpec extends FlatSpec {
     val p = new Student("Mary", "Wilcons", 23)
     assert(p.getAge == 23)
   }
+
+  it should "get their id" in {
+    val p = new Student("Mary", "Wilcons", 23)
+    assert(p.getId.isInstanceOf[String])
+  }
 }
 
 
