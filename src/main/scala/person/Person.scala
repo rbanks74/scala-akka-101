@@ -41,12 +41,22 @@ class Student(firstName: String, lastName: String, studentAge: Int) extends Pers
   /** Initialize gpa with a value of 0.0  */
   private var gpa: Double = 0.0
 
-  /** To demonstrate the use of Future on a seemingly difficult computation, on success => sets the gpa value.  */
+  /** To demonstrate the use of Futures on a seemingly difficult computation, on success => sets the gpa value.  */
   private val genGpa: Future[Double] = Future(BigDecimal((0 until 10000).map(x => math.abs(x * doubleGen)).sum % 5).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble)
+
   private val testingGpa: Future[Double] = genGpa
   testingGpa.onComplete{
     case Success(gpaVal) => gpa = gpaVal
     case Failure(t) => println("An error has occured: " + t.getMessage)
+  }
+
+  /** To Illustrate alternative way of evaluating the same future  */
+  private val testingGpa2: Future[Double] = genGpa
+  private val gpaOther: Future[Double] = for {
+    someVal <- testingGpa2
+  } yield someVal
+  gpaOther.onComplete {
+    case Success(gpaVal) => gpa = gpaVal
   }
 
   /** Helper functions to access Class attributes  */
