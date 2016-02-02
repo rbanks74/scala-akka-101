@@ -31,7 +31,4 @@ object Main extends App {
     tf <- tryFile("students.csv")
     theList <- enrollStudentsFromCsv(tf)
   } yield theList
-
-  println(b.getGpa)
-
 }
