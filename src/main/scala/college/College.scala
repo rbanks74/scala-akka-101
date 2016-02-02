@@ -86,7 +86,7 @@ class College(cName: String, cLocation: String, cEnrollmentSize: Int, cAcceptanc
    *
    * @param student takes an instance of person.Student
    * Side Effect: adds the student to the studentsList and studentMap
-   * TODO: Choose list of map version, not both
+   * TODO: Choose list or map version, not both
    */
   def addStudent(student: person.Student): Unit = {
     studentsList ::= student
@@ -97,7 +97,7 @@ class College(cName: String, cLocation: String, cEnrollmentSize: Int, cAcceptanc
    *
    * @param students takes a list of person.Student instances
    * Side Effect: adds the students in the list to the studentsList and studentMap
-   * TODO: Choose list of map version, not both
+   * TODO: Choose list or map version, not both
    */
   def addStudent(students: List[person.Student]): Unit = {
     students.foreach(x => studentsList ::= x)
