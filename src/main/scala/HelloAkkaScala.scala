@@ -3,8 +3,6 @@ import college.College
 import optools.utils.{enrollStudentsFromCsv, tryFile}
 import person.Student
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 
@@ -33,13 +31,6 @@ object HelloAkkaScala extends App {
   } yield theList
   //println(test2File)
 
-  val testingGpa: Future[Double] = b.gpa
-  def anotherFun(gpaVal: Double): Future[Double] = Future(gpaVal)
-  val confirm: Future[Double] = testingGpa.flatMap(p => anotherFun(p))
+  println(b.getGpa)
 
-
-
-
-  //c.addStudent(List(a,b))
-  //println(c.getStudentList)
 }
