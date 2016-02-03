@@ -10,6 +10,5 @@ Project to show my Scala learning adventure
         * Fix Class Hierarchies
             - The filename and class should be identical and segregated accordingly
         * Remove Random value generators from the Person Abstract Class and move to the Optools Object
-        * Remove the word "test" from Main.scala on the print statements (can cause confusion)
         * Work in Akka
         * Test Complexity
