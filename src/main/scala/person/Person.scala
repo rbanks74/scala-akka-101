@@ -57,6 +57,7 @@ class Student(firstName: String, lastName: String, studentAge: Int) extends Pers
   } yield someVal
   gpaOther.onComplete {
     case Success(gpaVal) => gpa = gpaVal
+    case Failure(t) => println("An error has occured: " + t.getMessage)
   }
 
   /** Helper functions to access Class attributes  */
