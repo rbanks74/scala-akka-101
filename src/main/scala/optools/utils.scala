@@ -1,13 +1,11 @@
 package optools
 
-/** To interact with the Student Class  */
-import person.Student
+import java.util.Random
 
-/** To read contents from a file and makes Try class available  */
 import scala.io.BufferedSource
 import scala.util.Try
 
-/** utils object to supply helper methods for the Student and College Classes */
+/** utils object to supply helper/service methods */
 object utils {
 
   /** Method to check if file can be read
@@ -19,19 +17,8 @@ object utils {
   }
 
 
-  /** Method to enroll students from a file into the College Class's studentList (or studentMap) -TODO
-   * @param studentFile csv file of students
-   * @return returns a list of students if successful
-   */
-  def enrollStudentsFromCsv(studentFile: BufferedSource): Try[List[Student]] = {
-    var studentList: List[Student] = List()
-    for (line <- studentFile.getLines()) {
-      val rows = line.split(",").map(_.trim)
-      val names = rows(0).split(" ")
-      studentList ::= new Student(names(0), names(1), rows(1).toInt)
-    }
-    Try(studentList)
-  }
-
+  /** To create random 10-digit string of integers for an id  */
+  val intGen: Int = new Random().nextInt()
+  def generateIdString: String = (0 until 10).map(x => math.abs((x * intGen) % 10)).mkString
 
 }
