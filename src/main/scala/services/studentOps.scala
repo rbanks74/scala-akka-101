@@ -11,6 +11,6 @@ object studentOps {
     updatedStudent
   }
 
-  def acceptanceToCollege(student: Student, college: College): Boolean = student.gpa >= college.acceptanceCriteria
+  def canBeAccepted(student: Student, college: College): Boolean = student.gpa >= college.acceptanceCriteria
 
 }

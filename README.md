@@ -15,6 +15,9 @@ Project to show my Scala learning adventure
         
         
         Change Log 
+        *   2/4/16 Refactor: version 0.6.1
+            - changed name of acceptanceToCollege method to canBeAccepted 
+        
         *   2/4/16 Refactor: version 0.6
             - Moved random double generator to the optools.utils object
             - Created a new services directory to segregate methods on College and Student objects
