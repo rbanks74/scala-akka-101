@@ -1,6 +1,7 @@
 
 import college.College
-import optools.studentOps._
+import services.collegeOps
+import collegeOps._
 import optools.utils._
 import student.Student
 
@@ -20,6 +21,9 @@ object Main extends App {
   val studentList = List(a, d)
   val c = addStudentToCollege(studentList, b)
   println(c)
+
+  val e = removeStudentFromCollege(a, c)
+  println(e)
 
 
   /**

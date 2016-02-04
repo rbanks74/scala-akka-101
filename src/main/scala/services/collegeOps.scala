@@ -1,15 +1,14 @@
-package optools
+package services
 
 import college.College
 import student.Student
 
-object studentOps {
+object collegeOps {
 
   /**
    *
    * @param student takes a list of student.Student instances
-   * Side Effect: adds the students in the list to the studentsList and studentMap
-   * TODO: Choose list or map version, not both
+   * Side Effect: adds the students in the list to the studentsList
    */
 
   def addStudentToCollege(student: Student, college: College): College = {
@@ -26,6 +25,18 @@ object studentOps {
     updatedCollege
   }
 
+  def removeStudentFromCollege(student: Student, college: College) = {
+    if (college.studentList.contains(student)) {
+      val currentList = college.studentList
+      val newList: List[Student] = currentList.filter(_ != student)
+      val updatedCollege: College = college.copy(studentList = newList)
+      updatedCollege
+    }
+    else {
+      println(s"Student: $student does not belong to ${college.name}")
+      college
+    }
+  }
 
 
 
@@ -40,19 +51,5 @@ object studentOps {
   //studentList ::= new Student(names(0), names(1), rows(1).toInt)
   //  }
   //  Try(studentList)
-  //}
-
-
-  /** Initialize gpa with a value of 0.0  */
-  //private var gpa: Double = 0.0
-
-  /** To demonstrate the use of Futures on a seemingly difficult computation, on success => sets the gpa value.  */
-  //val doubleGen = new Random().nextDouble()
-  //private val genGpa: Future[Double] = Future(BigDecimal((0 until 10000).map(x => math.abs(x * doubleGen)).sum % 5).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble)
-
-  //private val testingGpa: Future[Double] = genGpa
-  //testingGpa.onComplete{
-  //  case Success(gpaVal) => gpa = gpaVal
-  //  case Failure(t) => println("An error has occured: " + t.getMessage)
   //}
 }
