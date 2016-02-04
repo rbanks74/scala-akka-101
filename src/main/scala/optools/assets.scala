@@ -1,7 +1,7 @@
 package optools
 
 
-object studentAssets {
+object assets {
 
   val allMajorList: List[String] = {
     List(

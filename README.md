@@ -7,8 +7,16 @@ Project to show my Scala learning adventure
         ( Please excuse the project structure :) )
         
         TODO List
-        * Fix Class Hierarchies
-            - The filename and class should be identical and segregated accordingly
-        * Remove Random value generators from the Person Abstract Class and move to the Optools Object
+        * Define methods for the College Class
+        * Segregate College Operations and Student Operations
         * Work in Akka
-        * Test Complexity
+        * Update Testing and add Complexity
+        
+        
+        
+        Change Log 
+        *   2/4/16 Major refactor: version 0.5 
+            - Use of Case Classes instead of Regular Classes and SubClasses
+            - Moved random # generator functionality to the optools.utils object
+            - Moved static data to optools.assets
+            - Moved methods on students to optools.studentOps
