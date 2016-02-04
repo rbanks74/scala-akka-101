@@ -12,9 +12,16 @@ object studentOps {
    * TODO: Choose list or map version, not both
    */
 
-  def addStudent(student: Student, college: College): College = {
+  def addStudentToCollege(student: Student, college: College): College = {
     val currentList = college.studentList
     val newList: List[Student] = currentList :+ student
+    val updatedCollege: College = college.copy(studentList = newList)
+    updatedCollege
+  }
+
+  def addStudentToCollege(students: List[Student], college: College) = {
+    val currentList = college.studentList
+    val newList: List[Student] = students.flatMap(x => currentList :+ x)
     val updatedCollege: College = college.copy(studentList = newList)
     updatedCollege
   }

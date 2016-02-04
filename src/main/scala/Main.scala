@@ -11,10 +11,14 @@ object Main extends App {
   val a = new Student("Tim Jones", 19, generateIdString, 3.4)
   println(a)
 
-  val b = new College("Rowan", 12, 3.5, List())
+  val d = new Student("Danny Green", 23, generateIdString, 3.9)
+  println(d)
+
+  val b = new College("Rowan University", 12, 3.5, List())
   println(b)
 
-  val c = addStudent(a, b)
+  val studentList = List(a, d)
+  val c = addStudentToCollege(studentList, b)
   println(c)
 
 

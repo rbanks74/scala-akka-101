@@ -3,7 +3,6 @@ package optools
 
 object studentAssets {
 
-
   val allMajorList: List[String] = {
     List(
       "Biology",

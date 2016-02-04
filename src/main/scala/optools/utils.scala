@@ -1,7 +1,6 @@
 package optools
 
 import java.util.Random
-
 import scala.io.BufferedSource
 import scala.util.Try
 
