@@ -5,7 +5,6 @@ import services.collegeOps._
 import services.studentOps._
 import student.Student
 
-
 object Main extends App {
 
   /** Demonstrating creation of Student Instances  */
