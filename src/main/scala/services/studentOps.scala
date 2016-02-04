@@ -11,6 +11,10 @@ object studentOps {
     updatedStudent
   }
 
+  def collegeBelongedTo(student: Student): String = {
+    "placeholder"
+  }
+
   def canBeAccepted(student: Student, college: College): Boolean = student.gpa >= college.acceptanceCriteria
 
 }

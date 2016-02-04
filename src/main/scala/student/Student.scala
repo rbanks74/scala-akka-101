@@ -1,6 +1,5 @@
 package student
 
-
 /**
  *
  * @param name student's name

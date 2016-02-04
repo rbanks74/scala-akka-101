@@ -1,6 +1,5 @@
 package optools
 
-
 object assets {
 
   val allMajorList: List[String] = {
