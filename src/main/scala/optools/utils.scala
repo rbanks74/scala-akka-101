@@ -1,6 +1,8 @@
 package optools
 
 import java.util.Random
+import student.Student
+
 import scala.io.BufferedSource
 import scala.util.Try
 
@@ -8,6 +10,7 @@ import scala.util.Try
 object utils {
 
   /** Method to check if file can be read
+ *
    * @param filename name of the file to be read
    * @return returns the file object if successful
    */
