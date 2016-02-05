@@ -27,6 +27,7 @@ object Main extends App {
   println(f)
 
 
+
   /**
   val student1File = tryFile("students.csv").flatMap(tf => enrollStudentsFromCsv(tf))
   println(student1File)
