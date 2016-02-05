@@ -1,4 +1,6 @@
 import college.College
+import com.mongodb.casbah.MongoClient
+import com.mongodb.casbah.commons.MongoDBObject
 import optools.utils._
 import services.collegeOps._
 import services.studentOps._
@@ -26,6 +28,9 @@ object Main extends App {
   val f = updateGpa(a)
   println(f)
 
+  val db = MongoDBObject("studentA" -> 1, "studentB" -> 2)
+  val mdb = MongoClient()("scala-mongo-test")("smt")
+  println(mdb)
 
   /**
   val student1File = tryFile("students.csv").flatMap(tf => enrollStudentsFromCsv(tf))
