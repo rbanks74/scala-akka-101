@@ -32,6 +32,7 @@ object Main extends App {
   val mdb = MongoClient()("scala-mongo-test")("smt")
   println(mdb)
 
+
   /**
   val student1File = tryFile("students.csv").flatMap(tf => enrollStudentsFromCsv(tf))
   println(student1File)
