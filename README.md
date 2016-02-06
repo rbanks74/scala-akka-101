@@ -15,6 +15,12 @@ Project to show my Scala learning adventure
         
         
         Change Log 
+        *   2/6/16 Refactor: version 0.7
+            - created StudentAttr trait to fix issue with generateIdString and generateGpa function
+                * Functions were only evaluating once and kept the same value for every subsequent class object
+            - created the setId function in studentOps.scala, to generate the random string id    
+            - changed name of function generateDouble to generateGpa
+            
         *   2/4/16 Refactor: version 0.6.1
             - changed name of acceptanceToCollege method to canBeAccepted 
         

@@ -1,13 +1,17 @@
 package services
 
 import college.College
-import optools.utils.generateDouble
 import student.Student
 
 object studentOps {
 
+  def setId(student: Student): Student = {
+    val updatedStudent = student.copy(id = student.generateIdString)
+    updatedStudent
+  }
+
   def updateGpa(student: Student): Student = {
-    val updatedStudent = student.copy(gpa = generateDouble)
+    val updatedStudent = student.copy(gpa = student.generateGpa)
     updatedStudent
   }
 
