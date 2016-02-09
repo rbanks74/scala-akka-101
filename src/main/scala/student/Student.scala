@@ -14,7 +14,6 @@ trait StudentAttr {
   def generateGpa: Double = BigDecimal((0 until 10000).map(x => math.abs(x * doubleGen)).sum % 5).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
 }
 
-
 /**
  *
  * @param name student's name

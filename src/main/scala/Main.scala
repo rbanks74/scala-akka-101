@@ -1,7 +1,10 @@
 import college.College
+import rx.lang.scala.Observable
 import services.collegeOps._
 import services.studentOps._
 import student.Student
+
+import scala.language.postfixOps
 
 object Main extends App {
 
@@ -15,36 +18,27 @@ object Main extends App {
   val d = Student("Danny Green", 23, "B", 3.92)
   println(d)
 
+  val i = setId(d)
+  println(i)
+
   val b = College("Rowan University", 12, 3.50, List())
   println(b)
 
-  val studentList = List(a, d)
+  val studentList = List(h, i)
   val c = addStudentToCollege(studentList, b)
   println(c)
 
-  val e = removeStudentFromCollege(a, c)
+  val e = removeStudentFromCollege(h, c)
   println(e)
-
-  val f = updateGpa(a)
-  println(f)
 
   val g = updateGpa(h)
   println(g)
 
+  def hello(names: String*) = {
+    Observable.from(names) subscribe { n =>
+      println(s"Hello $n!")
+    }
+  }
+  hello("Bill", "Bob", "Joe")
 
-  //val db = MongoDBObject("studentA" -> 1, "studentB" -> 2)
-  //val mdb = MongoClient()("scala-mongo-test")("smt")
-  //println(mdb)
-
-
-  /**
-  val student1File = tryFile("students.csv").flatMap(tf => enrollStudentsFromCsv(tf))
-  println(student1File)
-
-  val student2File = for {
-    tf <- tryFile("students.csv")
-    theList <- enrollStudentsFromCsv(tf)
-  } yield theList
-  println(student2File)
-    */
 }
