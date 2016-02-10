@@ -1,5 +1,7 @@
+import akka.actor._
 import college.College
-import rx.lang.scala.Observable
+import myactors.{Greeting, Counter}
+import rx.lang.scala.{Subscription, Observable}
 import services.collegeOps._
 import services.studentOps._
 import student.Student
@@ -34,11 +36,18 @@ object Main extends App {
   val g = updateGpa(h)
   println(g)
 
-  def hello(names: String*) = {
+  def hello(names: String*): Subscription = {
     Observable.from(names) subscribe { n =>
       println(s"Hello $n!")
     }
   }
   hello("Bill", "Bob", "Joe")
 
+  /**  Start of Scala Akka  **/
+  val system = ActorSystem("HelloAkka")
+  val counterActor = system.actorOf(Props(new Counter), "counter")
+
+  counterActor ! Greeting
+
+  system.shutdown()   // Shutdown hook to shutdown service
 }

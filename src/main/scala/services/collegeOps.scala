@@ -12,18 +12,16 @@ object collegeOps {
    */
 
   def addStudentToCollege(student: Student, college: College): College = {
-    val currentList = college.studentList
-    val newList: List[Student] = currentList :+ student
-    val updatedCollege: College = college.copy(studentList = newList)
-    updatedCollege
+    //val currentList = college.studentList
+    //val newList: List[Student] = currentList :+ student
+    //val updatedCollege: College = college.copy(studentList = newList)
+    //updatedCollege
+
+    college.copy(studentList = college.studentList :+ student)
   }
 
-  def addStudentToCollege(students: List[Student], college: College) = {
-    val currentList = college.studentList
-    val newList: List[Student] = students.flatMap(x => currentList :+ x)
-    val updatedCollege: College = college.copy(studentList = newList)
-    updatedCollege
-  }
+  def addStudentToCollege(students: List[Student], college: College) = college.copy(studentList = college.studentList ++ students)
+
 
   def removeStudentFromCollege(student: Student, college: College) = {
     if (college.studentList.contains(student)) {
@@ -36,6 +34,8 @@ object collegeOps {
       println(s"Student: $student does not belong to ${college.name}")
       college
     }
+
+    //return a Try[College], handle side effect in Main
   }
 
 

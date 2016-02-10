@@ -15,6 +15,8 @@ Project to show my Scala learning adventure
         
         
         Change Log 
+        *   2/10/16 Refactor: 0.8
+        
         *   2/9/16 Addition: version 0.7.1
             - added an Observable method to get the students.csv file
         

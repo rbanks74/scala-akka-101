@@ -1,5 +1,7 @@
 package optools
 
+import java.util.Random
+
 import rx.lang.scala.Observable
 import scala.concurrent.Future
 import scala.io.BufferedSource
@@ -8,6 +10,17 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 /** utils object to supply helper/service methods */
 object utils {
+
+  /** To create random 10-digit string of integers for an id  */
+  // make it a def and then put back into service
+  def intGen: Int = new Random().nextInt()
+  def generateIdString: String = (0 until 10).map(x => math.abs(x = (x * intGen) % 10)).mkString
+
+  /** To create random double with rounding  */
+  def doubleGen: Double = new Random().nextDouble()
+  def generateGpa: Double = BigDecimal((0 until 10000).map(x => math.abs(x * doubleGen)).sum % 5).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+
+
 
   /** Method to check if file can be read
  *
