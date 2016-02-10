@@ -15,6 +15,9 @@ Project to show my Scala learning adventure
         
         
         Change Log 
+        *   2/9/16 Addition: version 0.7.1
+            - added an Observable method to get the students.csv file
+        
         *   2/6/16 Refactor: version 0.7
             - created StudentAttr trait to fix issue with generateIdString and generateGpa function
                 * Functions were only evaluating once and kept the same value for every subsequent class object
