@@ -1,7 +1,6 @@
 import akka.actor._
 import college.College
-import myactors.{Greeting, Counter}
-import rx.lang.scala.{Subscription, Observable}
+import myactors.{Counter, Greeting}
 import services.collegeOps._
 import services.studentOps._
 import student.Student
@@ -11,37 +10,21 @@ import scala.language.postfixOps
 object Main extends App {
 
   /** Demonstrating creation of Student Instances  */
-  val a = Student("Tim Jones", 19, "A", 3.45)
-  println(a)
+  val student1 = setId(Student("Tim Jones", 19, "A", 3.45))
+  println(student1)
 
-  val h = setId(a)
-  println(h)
+  val student2 = setId(Student("Danny Green", 23, "B", 3.92))
+  println(student2)
 
-  val d = Student("Danny Green", 23, "B", 3.92)
-  println(d)
+  val student3 = setId(Student("Amy Green", 20, "C", 3.12))
+  println(student3)
 
-  val i = setId(d)
-  println(i)
+  val college1 = addStudentToCollege(List(student1, student2), College("Rowan University", 12, 3.50, List()))
+  println(college1)
 
-  val b = College("Rowan University", 12, 3.50, List())
-  println(b)
-
-  val studentList = List(h, i)
-  val c = addStudentToCollege(studentList, b)
-  println(c)
-
-  val e = removeStudentFromCollege(h, c)
-  println(e)
-
-  val g = updateGpa(h)
-  println(g)
-
-  def hello(names: String*): Subscription = {
-    Observable.from(names) subscribe { n =>
-      println(s"Hello $n!")
-    }
-  }
-  hello("Bill", "Bob", "Joe")
+  // Try here would be not needed, only need to check if student is in the College list
+  val f = if (college1.studentList.contains(student3)) removeStudentFromCollege(student3, college1) else s"Remove Failed: Student ${student3.name} is not enrolled at ${college1.name}"
+  println(f)
 
   /**  Start of Scala Akka  **/
   val system = ActorSystem("HelloAkka")

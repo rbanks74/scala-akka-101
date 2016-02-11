@@ -15,7 +15,9 @@ Project to show my Scala learning adventure
         
         
         Change Log 
-        *   2/10/16 Refactor: 0.8
+        *   2/11/16 Refactor: 0.8
+            - Simplified collegeOps and studentOps methods
+            - Updated Main.scala to simplify the method calls and rename values
         
         *   2/9/16 Addition: version 0.7.1
             - added an Observable method to get the students.csv file

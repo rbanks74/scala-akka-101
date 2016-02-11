@@ -57,4 +57,13 @@ object utils {
     }
   )
   */
+
+  /** Testing out Observables and Subscriptions
+   *   def hello(names: String*): Subscription = {
+    Observable.from(names) subscribe { n =>
+      println(s"Hello $n!")
+    }
+  }
+  hello("Bill", "Bob", "Joe")
+   */
 }

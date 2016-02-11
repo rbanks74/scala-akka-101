@@ -6,15 +6,10 @@ import student.Student
 
 object studentOps {
 
-  def setId(student: Student): Student = {
-    student.copy(id = generateIdString)
-  }
+  def setId(student: Student): Student = student.copy(id = generateIdString)
 
-  def updateGpa(student: Student): Student = {
-    //val updatedStudent = student.copy(gpa = generateGpa)
-    //updatedStudent
-    student.copy(gpa = generateGpa)
-  }
+  def updateGpa(student: Student): Student = student.copy(gpa = generateGpa)
+
 
   def collegeBelongedTo(student: Student): String = {
     "placeholder"
