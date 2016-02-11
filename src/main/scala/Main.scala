@@ -1,6 +1,6 @@
 import akka.actor._
 import college.College
-import myactors.{Counter, Greeting}
+import myactors.Counter
 import services.collegeOps._
 import services.studentOps._
 import student.Student
@@ -30,7 +30,10 @@ object Main extends App {
   val system = ActorSystem("HelloAkka")
   val counterActor = system.actorOf(Props(new Counter), "counter")
 
-  counterActor ! Greeting
+  counterActor ! "incr"
+  counterActor ! "incr"
+  counterActor ! "get"
 
-  system.shutdown()   // Shutdown hook to shutdown service
+  /**  Add Shutdown hook to shutdown service  **/
+  system.shutdown()
 }
