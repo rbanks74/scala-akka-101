@@ -1,6 +1,6 @@
 import akka.actor._
 import college.College
-import myactors.Counter
+import myactors.{ChildSupervisor, Counter, ChildSupervisor$}
 import services.collegeOps._
 import services.studentOps._
 import student.Student
@@ -9,7 +9,7 @@ import scala.language.postfixOps
 
 object Main extends App {
 
-  /** Demonstrating creation of Student Instances  */
+  /** Demonstrating creation of Student Instances and College Instance  */
   val student1 = setId(Student("Tim Jones", 19, "A", 3.45))
   println(student1)
 
@@ -27,13 +27,18 @@ object Main extends App {
   println(f)
 
   /**  Start of Scala Akka  **/
-  val system = ActorSystem("HelloAkka")
-  val counterActor = system.actorOf(Props(new Counter), "counter")
+  //val system = ActorSystem("HelloAkka")
+  //val counterActor = system.actorOf(Props(new Counter), "counter")
 
-  counterActor ! "incr"
-  counterActor ! "incr"
-  counterActor ! "get"
+  //counterActor ! "incr"
+  //counterActor ! "incr"
+  //counterActor ! "get"
 
-  /**  Add Shutdown hook to shutdown service  **/
-  system.shutdown()
+  /**  TODO: Add Shutdown hook to shutdown service  **/
+  //system.shutdown()
+
+  /** Children Scala Akka Example **/
+  val childSystem = ActorSystem("Children")
+  val childSupervisorActor = childSystem.actorOf(Props(new ChildSupervisor),"ChildSupervisor")
+
 }
