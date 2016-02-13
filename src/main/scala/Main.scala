@@ -1,13 +1,18 @@
 import akka.actor._
 import college.College
-import myactors.{ChildSupervisor, Counter, ChildSupervisor$}
+import com.typesafe.config.ConfigFactory
+import myactors.ChildSupervisor
 import services.collegeOps._
 import services.studentOps._
 import student.Student
-
 import scala.language.postfixOps
 
+
+
 object Main extends App {
+
+  val settings = ConfigFactory.load().getConfig("myApp")
+  println(settings.getString("testval"))
 
   /** Demonstrating creation of Student Instances and College Instance  */
   val student1 = setId(Student("Tim Jones", 19, "A", 3.45))

@@ -12,8 +12,8 @@ class ChildSupervisor extends Actor {
   val bill = context.actorOf(Props(new Child),"bill")
   val bob = context.actorOf(Props(new Child()),"bob")
 
-  bill ! Child.TestStudent
-  bob  ! Child.TestStudent
+  bill ! Child.TestChild
+  bob  ! Child.TestChild
 
   def receive = {
     case Child.Done => println(s"Test Completed!")
