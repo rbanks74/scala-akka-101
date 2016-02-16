@@ -1,7 +1,6 @@
 package myactors
 
-import akka.actor.Actor
-import akka.event.Logging
+import akka.actor.{Actor, ActorLogging}
 import myactors.Child._
 
 import scala.util.Random
@@ -12,15 +11,16 @@ object Child {
   case class Failed()
 }
 
-class Child extends Actor {
+class Child extends Actor with ActorLogging{
 
-  val log = Logging(context.system, this)
+  //val log = Logging(context.system, this)
   var testScore = 0
   def childTestScore: Int = math.abs(Random.nextInt(101))
 
   def receive = {
 
     case TestChild    =>
+      log.info("{} started", self)
       testScore = childTestScore
       while (testScore < 80) {
         //println(s"$self, I'm trying: $testScore")

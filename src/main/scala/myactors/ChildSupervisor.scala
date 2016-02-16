@@ -7,7 +7,7 @@ object ChildSupervisor {
   case class Failure()
 }
 
-class ChildSupervisor extends Actor {
+class ChildSupervisor extends Actor with ActorLogging {
 
   val bill = context.actorOf(Props(new Child),"bill")
   val bob = context.actorOf(Props(new Child()),"bob")
@@ -16,19 +16,7 @@ class ChildSupervisor extends Actor {
   bob  ! Child.TestChild
 
   def receive = {
-    case Child.Done => println(s"Test Completed!")
+    case Child.Done => log.info("Test Completed: {}", sender())
   }
-
-  /**
-  def transfer(student: Student) = {
-    val univTransferActor: ActorRef = context.actorOf(Props(new UniversityTransfer), "UnivTransferActor")
-    univTransferActor ! UniversityTransfer.Transfer(university1, university2, student)
-    context.become({
-      case UniversityTransfer.Done =>
-        println("success")
-        context.stop(self)
-    })
-  }
-  **/
 
 }
